@@ -72,7 +72,7 @@ Form.editors['bootstrap.typeahead'] = Text.extend
     # Insert options
     @$el.data
       items: source.length
-      source: "[#{ _.map(source, (row) -> '"' + row + '"').toString() }]"
+      source: "[#{ source.map((row) -> '"' + row + '"').toString() }]"
 
     # Select correct option
     @setValue @value
