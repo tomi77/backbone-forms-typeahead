@@ -9,6 +9,8 @@ Form.editors['bootstrap.typeahead'] = Text.extend
   initialize: (options) ->
     Base::initialize.call @, options
 
+    _.bindAll @, 'renderOptions'
+
     @$el.attr
       type: 'text'
       'data-provide': 'typeahead'
@@ -22,7 +24,6 @@ Form.editors['bootstrap.typeahead'] = Text.extend
   render: () ->
     @setValue @value
     @setOptions @schema.options
-
     @
 
   ###
@@ -34,17 +35,15 @@ Form.editors['bootstrap.typeahead'] = Text.extend
     switch
       # If a collection was passed, check if it needs fetching
       when options instanceof Backbone.Collection
-        collection = options
-
         # Don't do the fetch if it's already populated
-        if collection.length > 0
+        if options.length > 0
           @renderOptions options
         else
-          collection.fetch success: () => @renderOptions options
+          options.fetch success: @renderOptions
 
       # If a function was passed, run it to get the options
       when _.isFunction options
-        options (result) => @renderOptions result
+        options @renderOptions
 
       # Otherwise, ready to go straight to renderOptions
       else
