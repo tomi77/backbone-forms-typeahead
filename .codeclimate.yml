@@ -6,11 +6,14 @@ engines:
       - javascript
   eslint:
     enabled: true
+  coffeelint:
+    enabled: true
   fixme:
     enabled: true
 
 ratings:
   paths:
   - "src/*.js"
+  - "src/*.coffee"
 
 exclude_paths: []
