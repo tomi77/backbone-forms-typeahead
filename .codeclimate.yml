@@ -1,11 +1,4 @@
 engines:
-  duplication:
-    enabled: true
-    config:
-      languages:
-      - javascript
-  eslint:
-    enabled: true
   coffeelint:
     enabled: true
   fixme:
@@ -13,7 +6,6 @@ engines:
 
 ratings:
   paths:
-  - "src/*.js"
   - "src/*.coffee"
 
 exclude_paths: []
