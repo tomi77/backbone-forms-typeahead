@@ -1,17 +1,17 @@
 Form = Backbone.Form
 Base = Form.editors.Base
 Text = Form.editors.Text
-exports = {}
 
 ###
 Additional editors that depend on Bootstrap Typeahead
 ###
-exports['bootstrap.typeahead'] = Text.extend
+Form.editors['bootstrap.typeahead'] = Text.extend
   initialize: (options) ->
-    Base.prototype.initialize.call(@, options)
+    Base::initialize.call @, options
 
-    @$el.attr 'type', 'text'
-    @$el.attr 'data-provide', 'typeahead'
+    @$el.attr
+      type: 'text'
+      'data-provide': 'typeahead'
 
     if not @schema or not @schema.options then throw "Missing required 'schema.options'"
     return
@@ -31,24 +31,24 @@ exports['bootstrap.typeahead'] = Text.extend
   @param {Mixed} options
   ###
   setOptions: (options) ->
-    # If a collection was passed, check if it needs fetching
-    if options instanceof Backbone.Collection
-      collection = options
+    switch
+      # If a collection was passed, check if it needs fetching
+      when options instanceof Backbone.Collection
+        collection = options
 
-      # Don't do the fetch if it's already populated
-      if collection.length > 0
-        @renderOptions options
+        # Don't do the fetch if it's already populated
+        if collection.length > 0
+          @renderOptions options
+        else
+          collection.fetch success: () => @renderOptions options
+
+      # If a function was passed, run it to get the options
+      when _.isFunction options
+        options (result) => @renderOptions result
+
+      # Otherwise, ready to go straight to renderOptions
       else
-        collection.fetch
-          success: () => @renderOptions options
-
-    # If a function was passed, run it to get the options
-    else if _.isFunction options
-      options (result) => @renderOptions result
-
-    # Otherwise, ready to go straight to renderOptions
-    else
-      @renderOptions options
+        @renderOptions options
 
     return
 
@@ -58,25 +58,23 @@ exports['bootstrap.typeahead'] = Text.extend
                        or as a Backbone collection
   ###
   renderOptions: (options) ->
-    # Accept array
-    if _.isArray options
-      source = options
+    source = switch
+      # Accept array
+      when _.isArray options
+        options
 
-    # Or Backbone collection
-    else if options instanceof Backbone.Collection
-      source = options.reduce (memo, row) ->
-        memo.push row.toString()
-        memo
-      , []
+      # Or Backbone collection
+      when options instanceof Backbone.Collection
+        options.reduce (memo, row) ->
+          memo.push row.toString()
+          memo
+        , []
 
     # Insert options
-    @$el.attr 'data-items', source.length
-    source = _.map source, (row) -> '"' + row + '"'
-    @$el.attr('data-source', "[#{ source.toString() }]")
+    @$el.data
+      items: source.length
+      source: "[#{ _.map(source, (row) -> '"' + row + '"').toString() }]"
 
     # Select correct option
     @setValue @value
     return
-
-# Exports
-_.extend Form.editors, exports
