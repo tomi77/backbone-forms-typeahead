@@ -5,10 +5,13 @@ rename = require 'gulp-rename'
 wrap = require 'gulp-wrap-umd'
 
 deps = [
-  {name: 'underscore', globalName: '_', paramName: '_'}
-  {name: 'backbone', globalName: 'Backbone', paramName: 'Backbone'}
-  {name: 'backbone-forms', globalName: 'Backbone.Forms', paramName: '_Form'}
-  {name: 'bootstrap-typeahead', globalName: 'ta', paramName: '_ta'}
+  name: 'underscore', globalName: '_', paramName: '_'
+,
+  name: 'backbone', globalName: 'Backbone', paramName: 'Backbone'
+,
+  name: 'backbone-forms', globalName: 'Backbone.Forms', paramName: '_Form'
+,
+  name: 'bootstrap-typeahead', globalName: 'ta', paramName: '_ta'
 ]
 
 gulp.task 'default', () ->
