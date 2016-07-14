@@ -19,7 +19,7 @@
     ".*",
     "gulpfile.coffee",
     "package.json",
-    "README.md"
+    "bower.json"
   ],
   "dependencies": {
     "backbone-forms": "^0.14.1",
