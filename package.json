@@ -1,6 +1,6 @@
 {
-  "name": "backbone-forms-bootstrap-typeahead",
-  "description": "Backbone-Forms Bootstrap Typeahead editor",
+  "name": "backbone-forms-typeahead",
+  "description": "Backbone-Forms Twitter Typeahead editor",
   "dependencies": {},
   "devDependencies": {
     "coffee-script": "^1.10.0",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tomi77/backbone-forms-bootstrap-typeahead.git"
+    "url": "git+https://github.com/tomi77/backbone-forms-typeahead.git"
   },
   "author": "Tomasz Jakub Rup",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tomi77/backbone-forms-bootstrap-typeahead/issues"
+    "url": "https://github.com/tomi77/backbone-forms-typeahead/issues"
   },
-  "homepage": "https://github.com/tomi77/backbone-forms-bootstrap-typeahead#readme"
+  "homepage": "https://github.com/tomi77/backbone-forms-typeahead#readme"
 }

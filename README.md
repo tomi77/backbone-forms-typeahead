@@ -1,7 +1,7 @@
-backbone-forms-bootstrap-typeahead
-==================================
+backbone-forms-typeahead
+========================
 
-Backbone-Forms Bootstrap Typeahead editor
+Backbone-Forms Twitter Typeahead editor
 
-[![Code Climate](https://codeclimate.com/github/tomi77/backbone-forms-bootstrap-typeahead/badges/gpa.svg)](https://codeclimate.com/github/tomi77/backbone-forms-bootstrap-typeahead)
-[![devDependency Status](https://david-dm.org/tomi77/backbone-forms-bootstrap-typeahead/dev-status.svg)](https://david-dm.org/tomi77/backbone-forms-bootstrap-typeahead#info=devDependencies)
+[![Code Climate](https://codeclimate.com/github/tomi77/backbone-forms-typeahead/badges/gpa.svg)](https://codeclimate.com/github/tomi77/backbone-forms-typeahead)
+[![devDependency Status](https://david-dm.org/tomi77/backbone-forms-typeahead/dev-status.svg)](https://david-dm.org/tomi77/backbone-forms-typeahead#info=devDependencies)
