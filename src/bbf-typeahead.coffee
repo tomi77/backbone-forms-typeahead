@@ -1,10 +1,10 @@
 ((root, factory) ->
   switch
     when typeof define is 'function' and define.amd
-      define ['underscore', 'backbone', 'backbone-forms', 'bootstrap-typeahead'], factory
+      define ['underscore', 'backbone', 'backbone-forms', 'typeahead.js'], factory
     when typeof exports is 'object'
       require('backbone-forms')
-      require('bootstrap-typeahead')
+      require('typeahead.js')
       factory require('underscore'), require('backbone')
     else
       factory root._, root.Backbone
@@ -17,7 +17,7 @@
   ###
   Additional editors that depend on Bootstrap Typeahead
   ###
-  Form.editors['bootstrap.typeahead'] = Text.extend
+  Form.editors['TypeAhead'] = Text.extend
     initialize: (options) ->
       Base::initialize.call @, options
 

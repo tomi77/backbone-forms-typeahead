@@ -1,11 +1,11 @@
 (function(root, factory) {
   switch (false) {
     case !(typeof define === 'function' && define.amd):
-      define(['underscore', 'backbone', 'backbone-forms', 'bootstrap-typeahead'], factory);
+      define(['underscore', 'backbone', 'backbone-forms', 'typeahead.js'], factory);
       break;
     case typeof exports !== 'object':
       require('backbone-forms');
-      require('bootstrap-typeahead');
+      require('typeahead.js');
       factory(require('underscore'), require('backbone'));
       break;
     default:
@@ -20,7 +20,7 @@
   /*
   Additional editors that depend on Bootstrap Typeahead
    */
-  Form.editors['bootstrap.typeahead'] = Text.extend({
+  Form.editors['TypeAhead'] = Text.extend({
     initialize: function(options) {
       Base.prototype.initialize.call(this, options);
       _.bindAll(this, 'renderOptions');
@@ -44,7 +44,7 @@
 
     /*
     Sets the options that populate the data-source attribute
-
+    
     @param {Mixed} options
      */
     setOptions: function(options) {
