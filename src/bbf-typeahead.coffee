@@ -27,7 +27,8 @@
         type: 'text'
         'data-provide': 'typeahead'
 
-      if not @schema or not @schema.options then throw "Missing required 'schema.options'"
+      unless @schema?.options?
+        throw new Error "Missing required 'schema.options'"
       return
 
     ###
