@@ -1,6 +1,4 @@
-var wrapper;
-
-wrapper = function(root, factory) {
+(function(root, factory) {
   switch (false) {
     case !(typeof define === 'function' && define.amd):
       define(['underscore', 'backbone', 'backbone-forms', 'bootstrap-typeahead'], factory);
@@ -13,9 +11,7 @@ wrapper = function(root, factory) {
     default:
       factory(root._, root.Backbone);
   }
-};
-
-wrapper(this, function(_, Backbone) {
+})(this, function(_, Backbone) {
   var Base, Form, Text;
   Form = Backbone.Form;
   Base = Form.editors.Base;
@@ -24,7 +20,7 @@ wrapper(this, function(_, Backbone) {
   /*
   Additional editors that depend on Bootstrap Typeahead
    */
-  return Form.editors['bootstrap.typeahead'] = Text.extend({
+  Form.editors['bootstrap.typeahead'] = Text.extend({
     initialize: function(options) {
       Base.prototype.initialize.call(this, options);
       _.bindAll(this, 'renderOptions');
@@ -48,7 +44,7 @@ wrapper(this, function(_, Backbone) {
 
     /*
     Sets the options that populate the data-source attribute
-    
+
     @param {Mixed} options
      */
     setOptions: function(options) {
@@ -63,7 +59,7 @@ wrapper(this, function(_, Backbone) {
           }
           break;
         case !_.isFunction(options):
-          options(this.renderOptions);
+          options(this.renderOptions, this);
           break;
         default:
           this.renderOptions(options);
@@ -82,17 +78,14 @@ wrapper(this, function(_, Backbone) {
           case !_.isArray(options):
             return options;
           case !(options instanceof Backbone.Collection):
-            return options.reduce(function(memo, row) {
-              memo.push(row.toString());
-              return memo;
-            }, []);
+            return options.map(function(row) {
+              return row.toString();
+            });
         }
       })();
       this.$el.data({
         items: source.length,
-        source: "[" + (source.map(function(row) {
-          return '"' + row + '"';
-        }).toString()) + "]"
+        source: source
       });
       this.setValue(this.value);
     }

@@ -1,4 +1,4 @@
-wrapper = (root, factory) ->
+((root, factory) ->
   switch
     when typeof define is 'function' and define.amd
       define ['underscore', 'backbone', 'backbone-forms', 'bootstrap-typeahead'], factory
@@ -9,8 +9,7 @@ wrapper = (root, factory) ->
     else
       factory root._, root.Backbone
   return
-
-wrapper @, (_, Backbone) ->
+) @, (_, Backbone) ->
   Form = Backbone.Form
   Base = Form.editors.Base
   Text = Form.editors.Text
@@ -56,7 +55,7 @@ wrapper @, (_, Backbone) ->
 
         # If a function was passed, run it to get the options
         when _.isFunction options
-          options @renderOptions
+          options @renderOptions, @
 
         # Otherwise, ready to go straight to renderOptions
         else
@@ -77,16 +76,15 @@ wrapper @, (_, Backbone) ->
 
         # Or Backbone collection
         when options instanceof Backbone.Collection
-          options.reduce (memo, row) ->
-            memo.push row.toString()
-            memo
-          , []
+          options.map (row) -> row.toString()
 
       # Insert options
       @$el.data
         items: source.length
-        source: "[#{ source.map((row) -> '"' + row + '"').toString() }]"
+        source: source
 
       # Select correct option
       @setValue @value
       return
+
+  return
