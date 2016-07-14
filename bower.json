@@ -1,0 +1,28 @@
+{
+  "name": "backbone-forms-bootstrap-typeahead",
+  "homepage": "https://github.com/tomi77/backbone-forms-bootstrap-typeahead",
+  "description": "Backbone-Forms Bootstrap Typeahead editor",
+  "main": "dist/bbf-typeahead.js",
+  "keywords": [
+    "backbone-forms",
+    "bootstrap",
+    "typeahead"
+  ],
+  "authors": [
+    "Tomasz Jakub Rup"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "src",
+    ".*",
+    "gulpfile.coffee",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "backbone-forms": "^0.14.1",
+    "typeahead.js": "^0.11.1"
+  }
+}
