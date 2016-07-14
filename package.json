@@ -4,15 +4,12 @@
   "dependencies": {},
   "devDependencies": {
     "coffee-script": "^1.10.0",
-    "globcat": "^1.0.0",
     "uglify-js": "^2.7.0"
   },
   "scripts": {
-    "build": "npm run build-js; npm run build-amd; npm run uglify; npm run uglify-amd",
+    "build": "npm run build-js; npm run uglify",
     "build-js": "coffee --bare --compile --no-header --output dist src/bbf-typeahead.coffee",
-    "build-amd": "globcat src/amd-template-pre.js dist/bbf-typeahead.js src/amd-template-post.js --output dist/bbf-typeahead.amd.js",
-    "uglify": "uglifyjs dist/bbf-typeahead.js --output dist/bbf-typeahead.min.js --compress --mangle",
-    "uglify-amd": "uglifyjs dist/bbf-typeahead.amd.js --output dist/bbf-typeahead.amd.min.js --compress --mangle"
+    "uglify": "uglifyjs dist/bbf-typeahead.js --output dist/bbf-typeahead.min.js --compress --mangle"
   },
   "repository": {
     "type": "git",
