@@ -22,14 +22,15 @@
    */
   Form.editors.TypeAhead = Text.extend({
     initialize: function(options) {
+      var ref;
       Base.prototype.initialize.call(this, options);
       _.bindAll(this, 'renderOptions');
       this.$el.attr({
         type: 'text',
         'data-provide': 'typeahead'
       });
-      if (!this.schema || !this.schema.options) {
-        throw "Missing required 'schema.options'";
+      if (((ref = this.schema) != null ? ref.options : void 0) == null) {
+        throw new Error("Missing required 'schema.options'");
       }
     },
 
