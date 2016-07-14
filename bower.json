@@ -17,9 +17,7 @@
     "bower_components",
     "src",
     ".*",
-    "gulpfile.coffee",
-    "package.json",
-    "bower.json"
+    "*.json"
   ],
   "dependencies": {
     "backbone-forms": "^0.14.1",
