@@ -18,9 +18,9 @@
   Text = Form.editors.Text;
 
   /*
-  Additional editors that depend on Bootstrap Typeahead
+  Additional editors that depend on Twitter TypeAhead
    */
-  Form.editors['TypeAhead'] = Text.extend({
+  Form.editors.TypeAhead = Text.extend({
     initialize: function(options) {
       Base.prototype.initialize.call(this, options);
       _.bindAll(this, 'renderOptions');
@@ -69,7 +69,7 @@
     /*
     Adds the data-source attribute to the input element
     @param {Mixed}   Options as a simple array e.g. ['option1', 'option2']
-                         or as a Backbone collection
+                     or as a Backbone collection
      */
     renderOptions: function(options) {
       var source;
