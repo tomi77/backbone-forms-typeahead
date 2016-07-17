@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone-Forms typeahead.js editor example</title>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script>
+    <script type="text/javascript"
+            src="//cdnjs.cloudflare.com/ajax/libs/backbone-forms/0.14.0/backbone-forms.min.js"></script>
+    <script type="text/javascript"
+            src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css"/>
+    <script type="text/javascript">
+        var substringMatcher = function (strs) {
+            return function findMatches(q, cb) {
+                var matches, substringRegex;
+
+                // an array that will be populated with substring matches
+                matches = [];
+
+                // regex used to determine if a string contains the substring `q`
+                substrRegex = new RegExp(q, 'i');
+
+                // iterate through the pool of strings and for any string that
+                // contains the substring `q`, add it to the `matches` array
+                $.each(strs, function (i, str) {
+                    if (substrRegex.test(str)) {
+                        matches.push(str);
+                    }
+                });
+
+                cb(matches);
+            };
+        };
+
+        var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+            'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+            'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+            'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+            'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+            'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+            'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+            'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+            'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+        ];
+
+        var example = function () {
+            var Model = Backbone.Model.extend({
+                schema: {
+                    name: {
+                        type: 'Text',
+                        title: 'Name'
+                    }
+                }
+            });
+            var model = new Model();
+            var form = new Backbone.Form({
+                model: model
+            });
+            $('#form').html(form.render().$el);
+            form.$('input[name="name"]').typeahead({}, {source: substringMatcher(states)});
+        };
+        document.addEventListener("DOMContentLoaded", example, false);
+        window.addEventListener("load", example, false);
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="v1.html">v1 (Bootstrap 2.3.2)</a></li>
+                <li class="active"><a href="v2.html">v2 (Bootstrap 3 + typeahead.js)</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h3>Example:</h3>
+    <div id="form"></div>
+
+    <h3>Code:</h3>
+    <pre>
+            var Model = Backbone.Model.extend({
+                schema: {
+                    name: {
+                        type: 'TypeAhead',
+                        title: 'Name',
+                        options: ['val1', 'val2', 'val3', 'example', 'test']
+                    }
+                }
+            });
+            var model = new Model({name: 'val1'});
+            var form = new Backbone.Form({
+                model: model
+            });
+            $('#form').html(form.render().$el);
+    </pre>
+</div>
+</body>
+</html>
