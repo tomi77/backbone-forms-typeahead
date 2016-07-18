@@ -1,6 +1,6 @@
 {
   "name": "backbone-forms-typeahead",
-  "description": "Backbone-Forms typeahead.js editor",
+  "description": "Backbone-Forms Bootstrap TypeAhead editor",
   "dependencies": {},
   "devDependencies": {
     "coffee-script": "^1.10.0",

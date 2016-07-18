@@ -1,10 +1,20 @@
+###
+  Backbone-Forms Bootstrap TypeAhead editor 1.0.0
+
+  Copyright (c) 2016 Tomasz Jakub Rup
+
+  https://github.com/tomi77/backbone-forms-typeahead
+
+  Released under the MIT license
+###
+
 ((root, factory) ->
   switch
     when typeof define is 'function' and define.amd
-      define ['underscore', 'backbone', 'backbone-forms', 'typeahead.js'], factory
+      define ['underscore', 'backbone', 'backbone-forms', 'bootstrap-typeahead'], factory
     when typeof exports is 'object'
       require('backbone-forms')
-      require('typeahead.js')
+      require('bootstrap-typeahead')
       factory require('underscore'), require('backbone')
     else
       factory root._, root.Backbone

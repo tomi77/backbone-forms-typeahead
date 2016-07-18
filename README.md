@@ -1,4 +1,4 @@
-Backbone-Forms typeahead.js editor
+Backbone-Forms Bootstrap TypeAhead editor
 ==================================
 
 [![Code Climate](https://codeclimate.com/github/tomi77/backbone-forms-typeahead/badges/gpa.svg)](https://codeclimate.com/github/tomi77/backbone-forms-typeahead)
@@ -7,5 +7,5 @@ Backbone-Forms typeahead.js editor
 Installation
 ------------
 
-    bower install backbone-forms-typeahead
+    bower install backbone-forms-typeahead#^1.0.0
 

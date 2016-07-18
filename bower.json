@@ -1,7 +1,7 @@
 {
   "name": "backbone-forms-typeahead",
   "homepage": "https://github.com/tomi77/backbone-forms-typeahead",
-  "description": "Backbone-Forms typeahead.js editor",
+  "description": "Backbone-Forms Bootstrap TypeAhead editor",
   "main": "dist/bbf-typeahead.js",
   "keywords": [
     "backbone-forms",
@@ -21,6 +21,6 @@
   ],
   "dependencies": {
     "backbone-forms": ">=0.9.0",
-    "typeahead.js": "^0.11.1"
+    "bootstrap": "2.0.0 - 2.3.2"
   }
 }
