@@ -1,3 +1,13 @@
+
+/*
+  Backbone-Forms Bootstrap TypeAhead editor 2.0.0
+
+  Copyright (c) 2016 Tomasz Jakub Rup
+
+  https://github.com/tomi77/backbone-forms-typeahead
+
+  Released under the MIT license
+ */
 (function(root, factory) {
   switch (false) {
     case !(typeof define === 'function' && define.amd):
