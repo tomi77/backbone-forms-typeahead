@@ -14,26 +14,21 @@
       define(['underscore', 'backbone', 'backbone-forms', 'bootstrap-typeahead'], factory);
       break;
     case typeof exports !== 'object':
-      require('backbone-forms');
       require('bootstrap-typeahead');
-      factory(require('underscore'), require('backbone'));
+      factory(require('underscore'), require('backbone'), require('backbone-forms'));
       break;
     default:
-      factory(root._, root.Backbone);
+      factory(root._, root.Backbone, root.Backbone.Form);
   }
-})(this, function(_, Backbone) {
-  var Base, Form, Text;
-  Form = Backbone.Form;
-  Base = Form.editors.Base;
-  Text = Form.editors.Text;
+})(this, function(_, Backbone, Form) {
 
   /*
   Additional editors that depend on Twitter TypeAhead
    */
-  Form.editors.TypeAhead = Text.extend({
+  Form.editors.TypeAhead = Form.editors.Text.extend({
     initialize: function(options) {
       var ref;
-      Base.prototype.initialize.call(this, options);
+      Form.editors.Base.prototype.initialize.call(this, options);
       _.bindAll(this, 'renderOptions');
       this.$el.attr({
         type: 'text',

@@ -13,23 +13,18 @@
     when typeof define is 'function' and define.amd
       define ['underscore', 'backbone', 'backbone-forms', 'bootstrap-typeahead'], factory
     when typeof exports is 'object'
-      require('backbone-forms')
       require('bootstrap-typeahead')
-      factory require('underscore'), require('backbone')
+      factory require('underscore'), require('backbone'), require('backbone-forms')
     else
-      factory root._, root.Backbone
+      factory root._, root.Backbone, root.Backbone.Form
   return
-) @, (_, Backbone) ->
-  Form = Backbone.Form
-  Base = Form.editors.Base
-  Text = Form.editors.Text
-
+) @, (_, Backbone, Form) ->
   ###
   Additional editors that depend on Twitter TypeAhead
   ###
-  Form.editors.TypeAhead = Text.extend
+  Form.editors.TypeAhead = Form.editors.Text.extend
     initialize: (options) ->
-      Base::initialize.call @, options
+      Form.editors.Base::initialize.call @, options
 
       _.bindAll @, 'renderOptions'
 
