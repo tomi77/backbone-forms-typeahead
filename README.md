@@ -38,3 +38,7 @@ var form = new Backbone.Form({
 });
 $('#form').html(form.render().$el);
 ~~~
+
+## Demo
+
+http://tomi77.github.io/backbone-forms-typeahead/v1.html
