@@ -36,6 +36,7 @@
       @$el.attr
         type: 'text'
         'data-provide': 'typeahead'
+        autocomplete: 'off'
 
       unless @schema?.options?
         throw new Error "Missing required 'schema.options'"
