@@ -32,7 +32,8 @@
       _.bindAll(this, 'renderOptions');
       this.$el.attr({
         type: 'text',
-        'data-provide': 'typeahead'
+        'data-provide': 'typeahead',
+        autocomplete: 'off'
       });
       if (((ref = this.schema) != null ? ref.options : void 0) == null) {
         throw new Error("Missing required 'schema.options'");
