@@ -1,6 +1,6 @@
 
 /*
-  Backbone-Forms Bootstrap TypeAhead editor 2.0.0
+  Backbone-Forms Bootstrap TypeAhead editor 2.0.1
 
   Copyright (c) 2016 Tomasz Jakub Rup
 
@@ -37,7 +37,8 @@
       _.bindAll(this, 'renderOptions');
       this.$el.attr({
         type: 'text',
-        'data-provide': 'typeahead'
+        'data-provide': 'typeahead',
+        autocomplete: 'off'
       });
       if (((ref = this.schema) != null ? ref.options : void 0) == null) {
         throw new Error("Missing required 'schema.options'");

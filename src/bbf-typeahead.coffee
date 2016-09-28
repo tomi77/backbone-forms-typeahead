@@ -1,5 +1,5 @@
 ###
-  Backbone-Forms Bootstrap TypeAhead editor 2.0.0
+  Backbone-Forms Bootstrap TypeAhead editor 2.0.1
 
   Copyright (c) 2016 Tomasz Jakub Rup
 
