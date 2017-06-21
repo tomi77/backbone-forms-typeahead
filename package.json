@@ -8,8 +8,8 @@
   },
   "scripts": {
     "build": "npm run build-js; npm run uglify",
-    "build-js": "coffee --bare --compile --no-header --output dist src/bbf-typeahead.coffee",
-    "uglify": "uglifyjs dist/bbf-typeahead.js --output dist/bbf-typeahead.min.js --compress --mangle"
+    "build-js": "coffee --bare --compile --no-header --output . src/bbf-typeahead.coffee",
+    "uglify": "uglifyjs bbf-typeahead.js --output bbf-typeahead.min.js --compress --mangle"
   },
   "repository": "tomi77/backbone-forms-typeahead",
   "author": "Tomasz Jakub Rup",
