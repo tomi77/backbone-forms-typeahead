@@ -11,10 +11,7 @@
     "build-js": "coffee --bare --compile --no-header --output dist src/bbf-typeahead.coffee",
     "uglify": "uglifyjs dist/bbf-typeahead.js --output dist/bbf-typeahead.min.js --compress --mangle"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tomi77/backbone-forms-typeahead.git"
-  },
+  "repository": "tomi77/backbone-forms-typeahead",
   "author": "Tomasz Jakub Rup",
   "license": "MIT",
   "bugs": {
