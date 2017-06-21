@@ -3,8 +3,8 @@
   "description": "Backbone-Forms typeahead.js editor",
   "dependencies": {},
   "devDependencies": {
-    "coffee-script": "^1.10.0",
-    "uglify-js": "^2.7.0"
+    "coffee-script": "^1.12.6",
+    "uglify-js": "^3.0.18"
   },
   "scripts": {
     "build": "npm run build-js; npm run uglify",
